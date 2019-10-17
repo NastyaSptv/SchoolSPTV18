@@ -5,54 +5,75 @@
  */
 package entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author User
  */
-public class History {
-
-    public static void getReturnDate(Date date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+@Entity
+public class History implements Serializable{
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToOne
     private Book book;
+    @OneToOne
     private Reader reader;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date takeOn;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date returnDate;
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     public History() {
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    public void setReader(Reader reader) {
-        this.reader = reader;
-    }
-
-    public void setTakeOn(Date takeOn) {
-        this.takeOn = takeOn;
-    }
-
-    public void setReturnDate(Date returnDate) {
-        this.returnDate = returnDate;
     }
 
     public Book getBook() {
         return book;
     }
 
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     public Reader getReader() {
         return reader;
+    }
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
     }
 
     public Date getTakeOn() {
         return takeOn;
     }
 
+    public void setTakeOn(Date takeOn) {
+        this.takeOn = takeOn;
+    }
+
     public Date getReturnDate() {
         return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
     }
 
     @Override
