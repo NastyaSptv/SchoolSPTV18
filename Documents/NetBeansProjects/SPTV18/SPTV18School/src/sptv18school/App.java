@@ -6,6 +6,7 @@ import entity.Subject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import provider.ProviderJournal;
 import provider.ProviderPerson;
 import provider.ProviderSubject;
 
@@ -62,7 +63,13 @@ public class App {
                     System.out.println(subject.toString());
                     break;
                 case 3:
-                    
+                    ProviderJournal providerJournal = new ProviderJournal();
+                    Journal journal = providerJournal.createJournal(persons, subjects);
+                    journals.add(journal);
+                    saverToFile.saveJournals(journals);
+                    System.out.println("Оценка выстовлена");
+                    System.out.println(journal.toString());
+                    break;
                 case 4:
                     System.out.println("Список учеников:");
                     tools.printListPersons(persons);
