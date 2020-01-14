@@ -6,7 +6,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *
@@ -15,8 +14,7 @@ import java.util.Date;
 public class Journal implements Serializable{
     private Person person;
     private Subject subject;
-    private Date giveOutPerson;
-    private Date returnPerson;
+    private int grade;
 
     public Journal() {
     }
@@ -37,20 +35,12 @@ public class Journal implements Serializable{
         this.subject = subject;
     }
 
-    public Date getGiveOutPerson() {
-        return giveOutPerson;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setGiveOutPerson(Date giveOutPerson) {
-        this.giveOutPerson = giveOutPerson;
-    }
-
-    public Date getReturnPerson() {
-        return returnPerson;
-    }
-
-    public void setReturnPerson(Date returnPerson) {
-        this.returnPerson = returnPerson;
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
     @Override
@@ -58,7 +48,8 @@ public class Journal implements Serializable{
         return "Journal{" 
                 + "person=" + person.getName()
                 + ", subject=" + subject.getSubjectName()
-                + " " + subject.getSubjectName()
-                + ", giveOutPerson=" + giveOutPerson + ", returnPerson=" + returnPerson + '}';
+                + ", grade=" + grade + '}';
     }
+
+    
 }

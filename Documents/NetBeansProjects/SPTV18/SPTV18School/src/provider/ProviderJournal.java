@@ -8,7 +8,6 @@ package provider;
 import entity.Journal;
 import entity.Person;
 import entity.Subject;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,8 +25,8 @@ public class ProviderJournal {
             System.out.println(i+1+". "+person.toString());
         }
         System.out.println("Выберите номер ученика:");
-        int numBooks = scanner.nextInt();
-        journal.setPerson(persons.get(numBooks-1));
+        int numPersons = scanner.nextInt();
+        journal.setPerson(persons.get(numPersons-1));
          System.out.println("Список предметов:");
         for (int i = 0; i < subjects.size(); i++) {
             Subject subject = subjects.get(i);
@@ -36,7 +35,9 @@ public class ProviderJournal {
         System.out.println("Выберите номер предмета:");
         int numSubject = scanner.nextInt();
         journal.setSubject(subjects.get(numSubject-1));
-        journal.setGiveOutPerson(new Date());
+        System.out.println("Введите оценку ученику:");
+        int grade = scanner.nextInt();
+        journal.setGrade(grade);
         return journal;
     }
 }

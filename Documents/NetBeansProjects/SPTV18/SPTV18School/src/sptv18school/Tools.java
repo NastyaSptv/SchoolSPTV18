@@ -5,6 +5,7 @@
  */
 package sptv18school;
 
+import entity.Journal;
 import entity.Person;
 import entity.Subject;
 import java.util.List;
@@ -24,10 +25,9 @@ public class Tools {
             System.out.println(i + 1 + ". " + person.toString());
         }
         System.out.println("Для выхода введите 0:");
-        int indexBook = scanner.nextInt();
+        int indexPerson = scanner.nextInt();
         scanner.nextLine();
-        if(0 != indexBook){
-            int indexPerson = 0;
+        if(0 != indexPerson){
             Person person = persons.get(indexPerson-1);
             persons.set(indexPerson-1, person);
         }
@@ -42,9 +42,22 @@ public class Tools {
         int indexSubject = scanner.nextInt();
         scanner.nextLine();
         if(0 != indexSubject){
-            int indexPerson = 0;
             Subject subject = subjects.get(indexSubject-1);
-            subjects.set(indexPerson-1, subject);
+            subjects.set(indexSubject-1, subject);
         }
-    } 
+    }
+    
+    void printListJournals(List<Journal> journals) {
+        for (int i = 0; i < journals.size(); i++) {
+            Journal journal = journals.get(i);
+            System.out.println(i + 1 + ". " + journal.toString());
+        }
+        System.out.println("Для выхода введите 0:");
+        int indexJournal = scanner.nextInt();
+        scanner.nextLine();
+        if(0 != indexJournal){
+            Journal journal = journals.get(indexJournal-1);
+            journals.set(indexJournal-1, journal);
+        }
+    }
 }

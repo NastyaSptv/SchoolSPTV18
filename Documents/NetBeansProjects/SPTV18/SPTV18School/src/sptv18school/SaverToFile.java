@@ -29,16 +29,16 @@ public class SaverToFile {
         FileOutputStream fileOutputStream = null;
         ObjectOutputStream objectOutputStream = null;
         try {
-            fileOutputStream = new FileOutputStream("Person.txt");
+            fileOutputStream = new FileOutputStream("Persons.txt");
             objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(persons);
             objectOutputStream.flush();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SaverToFile.class.getName())
-                    .log(Level.SEVERE, "Файла Person.txt не существует", ex);
+                    .log(Level.SEVERE, "Файла Persons.txt не существует", ex);
         } catch (IOException ex) {
             Logger.getLogger(SaverToFile.class.getName())
-                    .log(Level.SEVERE, "Проблемма записи в Books.txt", ex);
+                    .log(Level.SEVERE, "Проблемма записи в Persons.txt", ex);
         }
        
     }
@@ -133,5 +133,4 @@ public class SaverToFile {
         }
         return new ArrayList<Journal>();
     }
-    
 }
