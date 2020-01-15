@@ -25,12 +25,7 @@ public class Tools {
             System.out.println(i + 1 + ". " + person.toString());
         }
         System.out.println("Для выхода введите 0:");
-        int indexPerson = scanner.nextInt();
         scanner.nextLine();
-        if(0 != indexPerson){
-            Person person = persons.get(indexPerson-1);
-            persons.set(indexPerson-1, person);
-        }
     }
 
     void printListSubjects(List<Subject> subjects) {
@@ -39,12 +34,7 @@ public class Tools {
             System.out.println(i + 1 + ". " + subject.toString());
         }
         System.out.println("Для выхода введите 0:");
-        int indexSubject = scanner.nextInt();
         scanner.nextLine();
-        if(0 != indexSubject){
-            Subject subject = subjects.get(indexSubject-1);
-            subjects.set(indexSubject-1, subject);
-        }
     }
     
     void printListJournals(List<Journal> journals) {
@@ -52,12 +42,26 @@ public class Tools {
             Journal journal = journals.get(i);
             System.out.println(i + 1 + ". " + journal.toString());
         }
-        System.out.println("Для выхода введите 0:");
+        System.out.println("Для редактирования оценки введите ее номер или 0:");
         int indexJournal = scanner.nextInt();
         scanner.nextLine();
         if(0 != indexJournal){
             Journal journal = journals.get(indexJournal-1);
+            journal = editJournal(journal);
             journals.set(indexJournal-1, journal);
         }
+    }
+    
+    private Journal editJournal(Journal journal) {
+        System.out.println("Введите правильное значение:");
+        System.out.print("Оценка: ");
+        System.out.println(journal.getGrade());
+        System.out.print("Исправить на: ");
+        int newGrade = scanner.nextInt();
+        scanner.nextLine();
+        if(0 != newGrade){
+           journal.setGrade(newGrade); 
+        }
+        return journal;
     }
 }
