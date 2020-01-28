@@ -1,5 +1,5 @@
 package sptv18school;
-
+//Импортирует библеотеки 
 import entity.Journal;
 import entity.Person;
 import entity.Subject;
@@ -12,22 +12,25 @@ import provider.ProviderSubject;
 
 
 public class App {
+    //Создает массив 
     List<Person> persons = new ArrayList<>();
     List<Subject> subjects = new ArrayList<>();
     List<Journal> journals = new ArrayList<>();
     SaverToFile saverToFile;
     public App() {
+        //Загружает сохраненые данные 
         saverToFile = new SaverToFile();
         persons.addAll(saverToFile.loadPersons());
         subjects.addAll(saverToFile.loadSubjects());
         journals.addAll(saverToFile.loadJournals());
     }
-    
+ 
     public void run(){
         System.out.println("Учебная школа");
         boolean repeat = true;
         Tools tools = new Tools();
         do{
+            //Выводит следуюший текс 
             System.out.println("Список задач:");
             System.out.println("0. Выйти из программы");
             System.out.println("1. Добавить ученика/ученицы");
@@ -37,9 +40,11 @@ public class App {
             System.out.println("5. Вывести список предметов");
             System.out.println("6. Вывести учеников и их оценки по предмету (для учителя)");
             System.out.println("Выбери номер задачи: ");
+            //Считывание с клавиатуры 
             Scanner scanner = new Scanner(System.in);
             int task = scanner.nextInt(); scanner.nextLine();
             
+            //Переключатели для выбора задачь  
             switch (task) {
                 case 0:
                     System.out.println("Программа закрывается");
