@@ -24,13 +24,13 @@ public class App {
     }
     
     public void run(){
-        System.out.println("--- Учебная школа группы SPTV18 ---");
+        System.out.println("Учебная школа");
         boolean repeat = true;
         Tools tools = new Tools();
         do{
             System.out.println("Список задач:");
             System.out.println("0. Выйти из программы");
-            System.out.println("1. Добавить ученика");
+            System.out.println("1. Добавить ученика/ученицы");
             System.out.println("2. Добавить предмет");
             System.out.println("3. Выставить оценку ученику по определенному предмету");
             System.out.println("4. Вывести список учеников");
